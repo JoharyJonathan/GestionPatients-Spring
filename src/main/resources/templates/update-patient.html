@@ -1,37 +1,48 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <title>Modifier un Patient</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-    <script th:src="@{/js/bootstrap.min.js}"></script>
     <script th:src="@{/js/jquery.min.js}"></script>
     <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
 </head>
 <body>
-    <h1>Modifier un Patient</h1>
-    <form th:action="@{/patients/update/{id}(id=${patient.id})}" th:object="${patient}" method="post">
-        <label for="nom">Nom:</label>
-        <input type="text" id="nom" th:field="*{nom}"/>
-        <br/>
+    <div class="container">
+        <h1 class="my-4">Modifier un Patient</h1>
+        <form th:action="@{/patients/update/{id}(id=${patient.id})}" th:object="${patient}" method="post" class="card-body">
+            <div class="form-group">
+                <label for="nom">Nom:</label>
+                <input type="text" id="nom" th:field="*{nom}" class="form-control"/>
+            </div>
 
-        <label for="age">Age:</label>
-        <input type="text" id="age" th:field="*{age}"/>
-        <br/>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="text" id="age" th:field="*{age}" class="form-control"/>
+            </div>
 
-        <label for="datedenaissance">Date de Naissance:</label>
-        <input type="text" id="datedenaissance" th:field="*{datedenaissance}"/>
-        <br/>
+            <div class="form-group">
+                <label for="datedenaissance">Date de Naissance:</label>
+                <input type="date" id="datedenaissance" th:field="*{datedenaissance}" class="form-control"/>
+            </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" th:field="*{email}"/>
-        <br/>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" th:field="*{email}" class="form-control"/>
+            </div>
 
-        <label for="genre">Genre:</label>
-        <input type="text" id="genre" th:field="*{genre}"/>
-        <br/>
+            <div class="form-group">
+                <label for="genre">Genre:</label>
+                <input type="text" id="genre" th:field="*{genre}" class="form-control"/>
+            </div>
 
-        <button type="submit">Enregistrer</button>
-    </form>
-    <a th:href="@{/patients}">Retour à la liste</a>
+            <button type="submit" class="btn btn-primary mb-2">Enregistrer</button>
+        </form>
+
+        <div class="my-4">
+            <a th:href="@{/patients}" class="btn btn-secondary">Retour à la liste</a>
+        </div>
+    </div>
 </body>
 </html>
